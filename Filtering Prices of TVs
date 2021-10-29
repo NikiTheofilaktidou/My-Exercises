@@ -1,0 +1,42 @@
+let tv = ["samsung", "LG", "samsung", "TCL", "samsung", "LG", "LG"];
+let prices = [448, 353, 405, 545, 657, 465, 500];
+let countExpTV = 0;
+let statSamsung = 0;
+let statLG = 0;
+let statTCL = 0;
+let z = 0;
+
+//adistoixish timwn me monitors kai ektupwsh ths
+for (let i = 0; i < tv.length; i++) {
+    console.log(tv[i] + " " + prices[i]);
+}
+//ektypwsh timwn >450 euro kai ektupwsh tou ari8mou twn apotelesmatwn
+for (let i = 0; i < prices.length; i++) {
+    if (prices[i] > 450) {
+        countExpTV++;
+        console.log(prices[i]);
+    }
+}
+console.log(`Vrikame ${countExpTV} adikeimena me auta ta krithria.`); /*erwthsh: ti scope prepei na xoun oi metavlhtes gia na 
+ * bgainei prwta ektupwmeno to "vrhkame tosa apotelesmata.."*/
+//statistika poses samsung, TCL kai LG exw
+for (let i = 0; i < tv.length; i++) {
+    if (tv[i] === "samsung") {
+        statSamsung++;
+
+        z = (statSamsung / tv.length * 100).toFixed(2);
+    }
+}
+console.log("To pososto twn Samsung thleorasewn ths anazhthshs sas einai " + z + "%."); 
+for (let i = 0; i < tv.length; i++) {
+    if (tv[i] === "LG") {
+        statLG++;
+    }
+}
+console.log("To pososto twn LG thleorasewn ths anazhthshs sas einai " + (statLG / tv.length * 100).toFixed(2) + "%."); for (let i = 0; i < tv.length; i++);
+for (let i = 0; i < tv.length; i++) {
+    if (tv[i] === "TCL") {
+        statTCL++;
+    }
+}
+console.log("To pososto twn TCL thleorasewn ths anazhthshs sas einai " + (statTCL / tv.length * 100).toFixed(2) + "%."); for (let i = 0; i < tv.length; i++);;
