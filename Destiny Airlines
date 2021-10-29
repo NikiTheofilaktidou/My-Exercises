@@ -1,0 +1,365 @@
+//Destiny Airlines [booking tickets]
+let welcome = alert(`Welcome to Destiny Airlines!                                             
+
+We are currently operating flights over these cities! Pick a flight and enjoy the ride!
+
+BEIJING - PARIS - ATHENS - CAIRO - ROME - AMSTERDAM - NEW YORK - ANKARA `);
+
+//To-Go flight - location
+let userInputTo = prompt("Where do you wanna go? (Enter the city of your destination)");
+let arrivingAt = userInputTo.toUpperCase();
+
+switch (arrivingAt) {
+    case "BEIJING": case "PARIS": case "AMSTERDAM": case "NEW YORK": case "ANKARA": case "ATHENS": case "ROME": case "CAIRO": alert("Great! Please choose your departure airport"); break;
+    default: alert("I'm sorry, flights towards this location are currently unavailable."); console.log("Please try choosing your destination again."); break;
+}
+
+let userInputFrom = prompt("Where are you travelling from? (Enter the city of your departure)");
+let departingFrom = userInputFrom.toUpperCase();
+let userInputSame = arrivingAt === departingFrom;
+
+switch (departingFrom) {
+    case (userInputSame): alert("Oops! Your destination must differ from the city of departure."); break;
+    case "BEIJING": case "PARIS": case "AMSTERDAM": case "NEW YORK": case "ANKARA": case "ATHENS": case "ROME": case "CAIRO": alert("Great! When do you want to travel?"); break;
+    default: alert("I'm sorry, flights from this location are currently unavailable."); console.log("Please try choosing your city of departure again."); break;
+}
+
+//date
+let monthDate = parseInt(prompt("Please write the number of the month you're travelling on."));
+let dayDate = parseInt(prompt("Please write the number of the day you're travelling on."));
+let yearDate = parseInt(prompt("Please write the number of the year you're travelling in."));
+let month31 = monthDate == 1 || monthDate == 3 || monthDate == 5 || monthDate == 7 || monthDate == 8 || monthDate == 10 || monthDate == 12;
+let day31 = dayDate <= 31;
+let month30 = monthDate == 4 || monthDate == 6 || monthDate == 9 || monthDate == 11;
+let day30 = dayDate <= 30;
+let feb2022 = (monthDate == 2 && dayDate <= 28);
+let yearAcc = (yearDate >= 2021 && yearDate < 2023);
+let validToGoInput = (month31 && day31 && yearAcc) || (month30 && day30 && yearAcc) || (feb2022 && yearAcc) && !userInputSame;
+
+if (validToGoInput) {
+    console.log(`You chose to fly on ${monthDate}/${dayDate}/${yearDate} from ${departingFrom} to ${arrivingAt}.`);
+}
+else if (yearDate >= 2023) {
+    console.log("You cannot plan flights for that date yet");
+}
+else if (returnInputSame = true) {
+    console.log("Your destination must differ from the your departure area!");
+}
+else {
+    console.log("Something went wrong with the choice of the departure date. Please try again.");
+}
+
+////cost
+////let x = 200;
+////let costAmst = [7 * x, 3 * x, 10 * x, 4 * x, 3 * x, 1 * x, 2 * x];
+////let costAnk = [2 * x, 5 * x, 5 * x, 7 * x, 4 * x, 3 * x];
+////let costAth = [7 * x, 2 * x, 5 * x, 2 * x, 1 * x];
+////let costBeij = [8 * x, 10 * x, 8 * x, 7 * x];
+////let costCai = [5 * x, 4 * x, 3 * x];
+////let costNY = [3 * x, 4 * x];
+//let costParis = [1 * x];
+
+//if (departingFrom === "AMSTERDAM" && arrivingAt === "ANKARA") {
+//    console.log("The cost for this flight is " + costAmst[0] + " euro.");
+//}
+//else if (arrivingAt === "ATHENS" && departingFrom === "AMSTERDAM") {
+//    console.log("The cost for this flight is " + costAmst[1] + " euro.");  //DOULEVEI gia to athens amsterdam kai oxi gia to amsterdam athens
+//}
+//else if (departingFrom === "AMSTERDAM" && arrivingAt === "BEIJING") {
+//    console.log("The cost for this flight is " + costAmst[2] + " euro.");
+//}
+//else if (departingFrom === "AMSTERDAM" && arrivingAt === "CAIRO") {
+//    console.log("The cost for this flight is " + costAmst[3] + " euro.");
+//}
+//else if (departingFrom === "AMSTERDAM" && arrivingAt === "NEW YORK") {
+//    console.log("The cost for this flight is " + costAmst[4] + " euro.");
+//}
+//else if (departingFrom === "AMSTERDAM" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costAmst[5] + " euro.");
+//}
+//else if (departingFrom === "AMSTERDAM" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costAmst[6] + " euro.");
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "ATHENS") {
+//    console.log("The cost for this flight is " + costAnk[0] + " euro.");//DOULEVEI
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "BEIJING") {
+//    console.log("The cost for this flight is " + costAnk[1] + " euro.");
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "CAIRO") {
+//    console.log("The cost for this flight is " + costAnk[2] + " euro.");
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "NEW YORK") {
+//    console.log("The cost for this flight is " + costAnk[3] + " euro.");
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costAnk[4] + " euro.");
+//}
+//else if (departingFrom === "ANKARA" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costAnk[5] + " euro.");
+//}
+//else if (departingFrom === "ATHENS" && arrivingAt === "BEIJING") {
+//    console.log("The cost for this flight is " + costAth[0] + " euro.");
+//}
+//else if (departingFrom === "ATHENS" && arrivingAt === "CAIRO") {
+//    console.log("The cost for this flight is " + costAth[1] + " euro.");
+//}
+//else if (departingFrom === "ATHENS" && arrivingAt === "NEW YORK") {
+//    console.log("The cost for this flight is " + costAth[2] + " euro.");
+//}
+//else if (departingFrom === "ATHENS" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costAth[3] + " euro.");
+//}
+//else if (departingFrom === "ATHENS" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costAth[4] + " euro.");
+//}
+//else if (departingFrom === "BEIJING" && arrivingAt === "CAIRO") {
+//    console.log("The cost for this flight is " + costBeij[0] + " euro.");
+//}
+//else if (departingFrom === "BEIJING" && arrivingAt === "NEW YORK") {
+//    console.log("The cost for this flight is " + costBeij[1] + " euro.");
+//}
+//else if (departingFrom === "BEIJING" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costBeij[2] + " euro.");
+//}
+//else if (departingFrom === "BEIJING" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costBeij[3] + " euro.");
+//}
+//else if (departingFrom === "CAIRO" && arrivingAt === "NEW YORK") {
+//    console.log("The cost for this flight is " + costCai[0] + " euro.");
+//}
+//else if (departingFrom === "CAIRO" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costCai[1] + " euro.");
+//}
+//else if (departingFrom === "CAIRO" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costCai[2] + " euro.");
+//}
+//else if (departingFrom === "NEW YORK" && arrivingAt === "PARIS") {
+//    console.log("The cost for this flight is " + costNY[0] + " euro.");
+//}
+//else if (departingFrom === "NEW YORK" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costNY[1] + " euro.");
+//}
+//else if (departingFrom === "PARIS" && arrivingAt === "ROME") {
+//    console.log("The cost for this flight is " + costParis[0] + " euro.");
+//}
+//else { alert("Oops! Something went wrong. Please try again");
+//}
+
+//Date and Location Data - RETURN FLIGHT
+alert("Book your return tickets and earn 20% discount on your return trip! ");
+returnQuestion();
+
+function returnQuestion() {
+
+    let returnTicketsPrompt = prompt("Would you like to book your return tickets now? Write 1 for yes or 2 for No.");
+    let returnInput = parseInt(returnTicketsPrompt);
+
+    if (returnInput == 1) {
+        returnFlight();
+        writeYourName();
+    }
+    else if (returnInput == 2) {
+        writeYourName();
+    }
+    else {
+        alert("Please write 1 for Yes or 2 for No!");
+        returnQuestion();
+    }
+}
+
+function returnFlight() {
+    alert("Great! Let's book your return flights tickets");
+
+    let returnInputFrom = prompt("Enter the city you're departing from");
+    let returningFrom = returnInputFrom.toUpperCase();
+    let returnInputTo = prompt("Enter the city of your destination");
+    let returningTo = returnInputTo.toUpperCase();
+
+    switch (returningTo) {
+        case "BEIJING": case "PARIS": case "AMSTERDAM": case "NEW YORK": case "ANKARA": case "ATHENS": case "ROME": case "CAIRO": break;
+        default: alert("I'm sorry, flights towards this location are currently unavailable."); console.log("Please try choosing your destination again."); break;
+    }
+
+    let returnInputSame = returningTo === returningFrom;
+
+    switch (returningFrom) {
+        case (returnInputSame): alert("Oops! Your destination city must differ from the city of departure."); break;
+        case "BEIJING": case "PARIS": case "AMSTERDAM": case "NEW YORK": case "ANKARA": case "ATHENS": case "ROME": case "CAIRO": break;
+        default: alert("I'm sorry, flights from this location are currently unavailable."); console.log("Please try choosing your city of departure again."); break;
+    }
+
+    alert("Please pick the date of your return flights!");
+    let returnMonthInput = prompt("Please write the number of the month you're travelling on.");
+    let returnMonth = parseInt(returnMonthInput);
+
+    let returnDayInput = prompt("Please write the number of the day you're travelling on.");
+    let returnDay = parseInt(returnDayInput);
+
+    let returnYearInput = prompt("Please write the number of the year you're travelling in.");
+    let returnYear = parseInt(returnYearInput);
+
+    let month31 = returnMonth == 1 || returnMonth == 3 || returnMonth == 5 || returnMonth == 7 || returnMonth == 8 || returnMonth == 10 || returnMonth == 12;
+    let day31 = returnDay <= 31;
+    let month30 = returnMonth == 4 || returnMonth == 6 || returnMonth == 9 || returnMonth == 11;
+    let day30 = returnDay <= 30;
+    let feb2022 = (returnMonth == 2 && returnDay <= 28);
+    let yearAcc = (returnYear >= 2021 && returnYear < 2023);
+    let validReturnInput = (month31 && day31 && yearAcc) || (month30 && day30 && yearAcc) || (feb2022 && yearAcc) && !returnInputSame;
+
+    if (validReturnInput) {
+        console.log(`You chose to fly back on ${returnMonth}/${returnDay}/${returnYear} from ${returningFrom} to ${returningTo}.`);
+
+    }
+    else if (returnYear >= 2023) {
+        console.log("You cannot plan flights for that date yet");
+    }
+    else if (returnInputSame = true) {
+        console.log("Your destination must differ from the your departure area!");
+    }
+    else {
+        console.log("Something went wrong with the choice of the departure date. Please try again.");
+
+    }
+}
+
+////return flight cost. x can change based on the financial stats of the company.
+//let x = 200;
+//let costAmst = [7 * x, 3 * x, 10 * x, 4 * x, 3 * x, 1 * x, 2 * x];
+//let costAnk = [2 * x, 5 * x, 5 * x, 7 * x, 4 * x, 3 * x];
+//let costAth = [7 * x, 2 * x, 5 * x, 2 * x, 1 * x];
+//let costBeij = [8 * x, 10 * x, 8 * x, 7 * x];
+//let costCai = [5 * x, 4 * x, 3 * x];
+//let costNY = [3 * x, 4 * x];
+//let costParis = [1 * x];
+//let costToReturn;
+
+////Applying 20% off to the return flights.
+//switch (costToReturn) {
+//    case (returningTo === "AMSTERDAM" && returningFrom === "ANKARA"): console.log("The cost for this flight is " + costAmst[0] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "ATHENS"): console.log("The cost for this flight is " + costAmst[1] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "BEIJING"): console.log("The cost for this flight is " + costAmst[2] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "CAIRO"): console.log("The cost for this flight is " + costAmst[3] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "NEW YORK"): console.log("The cost for this flight is " + costAmst[4] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costAmst[5] * 0.8 + " euro."); break;
+//    case (returningTo === "AMSTERDAM" && returningFrom === "ROME"): console.log("The cost for this flight is " + costAmst[6] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "ATHENS"): console.log("The cost for this flight is " + costAnk[0] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "BEIJING"): console.log("The cost for this flight is " + costAnk[1] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "CAIRO"): console.log("The cost for this flight is " + costAnk[2] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "NEW YORK"): console.log("The cost for this flight is " + costAnk[3] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costAnk[4] * 0.8 + " euro."); break;
+//    case (returningTo === "ANKARA" && returningFrom === "ROME"): console.log("The cost for this flight is " + costAnk[5] * 0.8 + " euro."); break;
+//    case (returningTo === "ATHENS" && returningFrom === "BEIJING"): console.log("The cost for this flight is " + costAth[0] * 0.8 + " euro."); break;
+//    case (returningTo === "ATHENS" && returningFrom === "CAIRO"): console.log("The cost for this flight is " + costAth[1] * 0.8 + " euro."); break;
+//    case (returningTo === "ATHENS" && returningFrom === "NEW YORK"): console.log("The cost for this flight is " + costAth[2] * 0.8 + " euro."); break;
+//    case (returningTo === "ATHENS" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costAth[3] * 0.8 + " euro."); break;
+//    case (returningTo === "ATHENS" && returningFrom === "ROME"): console.log("The cost for this flight is " + costAth[4] * 0.8 + " euro."); break;
+//    case (returningTo === "BEIJING" && returningFrom === "CAIRO"): console.log("The cost for this flight is " + costBeij[0] * 0.8 + " euro."); break;
+//    case (returningTo === "BEIJING" && returningFrom === "NEW YORK"): console.log("The cost for this flight is " + costBeij[1] * 0.8 + " euro."); break;
+//    case (returningTo === "BEIJING" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costBeij[2] * 0.8 + " euro."); break;
+//    case (returningTo === "BEIJING" && returningFrom === "ROME"): console.log("The cost for this flight is " + costBeij[3] * 0.8 + " euro."); break;
+//    case (returningTo === "CAIRO" && returningFrom === "NEW YORK"): console.log("The cost for this flight is " + costCai[0] * 0.8 + " euro."); break;
+//    case (returningTo === "CAIRO" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costCai[1] * 0.8 + " euro."); break;
+//    case (returningTo === "CAIRO" && returningFrom === "ROME"): console.log("The cost for this flight is " + costCai[2] * 0.8 + " euro."); break;
+//    case (returningTo === "NEW YORK" && returningFrom === "PARIS"): console.log("The cost for this flight is " + costNY[0] * 0.8 + " euro."); break;
+//    case (returningTo === "NEW YORK" && returningFrom === "ROME"): console.log("The cost for this flight is " + costNY[1] * 0.8 + " euro."); break;
+//    case (returningTo === "PARIS" && returningFrom === "ROME"): console.log("The cost for this flight is " + costParis[0] * 0.8 + " euro."); break;
+//    default: alert("Oops! Something went wrong. Please try again"); break;
+//}
+
+//Client Personal Data
+function writeYourName() {
+    alert("Perfect! Now, please follow the instructions to completely fill the required data for your flight.");
+    let name = prompt("Write your name here.");
+    let nameClient = name.toUpperCase();
+    let surname = prompt("Write your surname here.");
+    let surnameClient = surname.toUpperCase();
+    console.log(`Name : ${nameClient}\nSurname : ${surnameClient}`);
+}
+
+//Cost Information
+//To Show the current billing of the flights to the customer
+let x = 200;
+let costAmst = [7 * x, 3 * x, 10 * x, 4 * x, 3 * x, 1 * x, 2 * x];
+let costAnk = [2 * x, 5 * x, 5 * x, 7 * x, 4 * x, 3 * x];
+let costAth = [7 * x, 2 * x, 5 * x, 2 * x, 1 * x];
+let costBeij = [8 * x, 10 * x, 8 * x, 7 * x];
+let costCai = [5 * x, 4 * x, 3 * x];
+let costNY = [3 * x, 4 * x];
+let costParis = [1 * x];
+let costToReturn;
+
+console.log(`                  Down for more flights? Check our price list with all of the available flights for the moment.
+           Don't forget! You will recieve an exclusive discount of 20% on the return flight tickets if you decide to fly with Destiny Airlines.`);
+let showCostCities = ["AMSTERDAM - ANKARA",
+    "AMSTERDAM - ATHENS",
+    "AMSTERDAM - BEIJING",
+    "AMSTERDAM - CAIRO",
+    "AMSTERDAM - NEW YORK",
+    "AMSTERDAM - PARIS",
+    "AMSTERDAM - ROME",
+
+    "ANKARA - AMSTERDAM",
+    "ANKARA - ATHENS",
+    "ANKARA - BEIJING",
+    "ANKARA - CAIRO",
+    "ANKARA - NEW YORK",
+    "ANKARA - PARIS",
+    "ANKARA - ROME",
+
+    "ATHENS - AMSTERDAM",
+    "ATHENS - ANKARA",
+    "ATHENS - BEIJING",
+    "ATHENS - CAIRO",
+    "ATHENS - NEW YORK",
+    "ATHENS - PARIS",
+    "ATHENS - ROME",
+
+    "BEIJING - AMSTERDAM",
+    "BEIJING - ANKARA",
+    "BEIJING - ATHENS",
+    "BEIJING - CAIRO",
+    "BEIJING - NEW YORK",
+    "BEIJING - PARIS",
+    "BEIJING - ROME",
+
+    "CAIRO - AMSTERDAM",
+    "CAIRO - ANKARA",
+    "CAIRO - ATHENS",
+    "CAIRO - BEIJING",
+    "CAIRO - NEW YORK",
+    "CAIRO - PARIS",
+    "CAIRO - ROME",
+
+    "NEW YORK - AMSTERDAM",
+    "NEW YORK - ANKARA",
+    "NEW YORK - ATHENS",
+    "NEW YORK - BEIJING",
+    "NEW YORK - CAIRO",
+    "NEW YORK - PARIS",
+    "NEW YORK - ROME",
+
+    "PARIS - AMSTERDAM",
+    "PARIS - ANKARA",
+    "PARIS - ATHENS",
+    "PARIS - BEIJING",
+    "PARIS - CAIRO",
+    "PARIS - NEW YORK",
+    "PARIS - ROME",
+
+    "ROME - AMSTERDAM",
+    "ROME - ANKARA",
+    "ROME - ATHENS",
+    "ROME - BEIJING",
+    "ROME - CAIRO",
+    "ROME - NEW YORK",
+    "ROME - PARIS"];
+
+let showCostPrice = [7 * x, 3 * x, 10 * x, 4 * x, 3 * x, 1 * x, 2 * x, 7 * x, 2 * x, 5 * x, 5 * x, 7 * x, 4 * x, 3 * x, 3 * x, 2 * x, 7 * x, 2 * x, 5 * x, 2 * x, 1 * x,
+10 * x, 5 * x, 7 * x, 8 * x, 10 * x, 8 * x, 7 * x, 4 * x, 5 * x, 2 * x, 8 * x, 5 * x, 4 * x, 3 * x, 3 * x, 7 * x, 5 * x, 10 * x, 5 * x, 3 * x, 4 * x, 1 * x, 4 * x, 3 * x, 8 * x, 3 * x, 3 * x, 1 * x, 2 * x, 3 * x, 1 * x, 7 * x, 3 * x, 4 * x, 1 * x];
+for (let i = 0; i < showCostCities.length; i++) {
+
+    console.log(showCostCities[i] + " " + showCostPrice[i]);
+}
+console.log("Enjoy your flight with Destiny Airlines!");
+
