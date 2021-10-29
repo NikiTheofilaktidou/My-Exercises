@@ -1,0 +1,24 @@
+//insert numbers to an array and print the average
+let input;
+let score;
+let scores = [];
+let sum = 0;
+
+do {
+    input = prompt("Give score");
+
+    if (input != "E" && input != "e") {
+        score = parseInt(input);
+        scores.push(score);
+    }
+}
+while (input != "E" && input != "e");
+
+for (let i = 0; i < scores.length; i++) {
+    console.log(scores[i]);
+}
+
+for (let i = 0; i < scores.length; i++) {
+    sum = sum + scores[i];
+}
+console.log("Average is: " + Math.round(sum / scores.length));
