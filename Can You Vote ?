@@ -1,0 +1,19 @@
+//Can you vote?
+
+let userInput = prompt("Give age");
+let age = parseInt(userInput);
+let adult = age >= 18;
+let notAdult = (age < 18 && age >= 0);
+
+if (isNaN(age)) {
+    console.log("Δεν έγραψες τίποτα!");
+}
+else if (adult) {
+    console.log("You can vote");
+}
+else if (notAdult) {
+    console.log("You can't vote");
+}
+else {
+    console.log("Meh :/");
+}
